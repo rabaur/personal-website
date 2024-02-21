@@ -1,6 +1,6 @@
 ---
 title: Publication 1
-authors: [Author1, Author2, Author3]
+authors: [Author1, Raphaël Baur, Author3]
 conference: Conference Name
 journal: Journal Name
 ---

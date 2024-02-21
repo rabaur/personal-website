@@ -32,16 +32,48 @@ layout: base
   <div class="publication-item">
     <div class="publication-thumbnail-wrapper">
       {% assign image_path = "assets/images/publication-thumbnails/placeholder.jpg" %}
-      {% assign search_for_path = "assets/images/publication-thumbnails/" | append: publication.name | remove: ".md" | append: ".jpg" %}
+      {% assign search_for_path = "assets/images/publication-thumbnails/" | append: publication.name | remove: ".md" |
+      append: ".jpg" %}
       {% for file in site.static_files %}
-          {% if file.path contains search_for_path %}
-              {% assign image_path = search_for_path %}
-          {% endif %}
+        {% if file.path contains search_for_path %}
+          {% assign image_path = search_for_path %}
+        {% endif %}
       {% endfor %}
       <img class="publication-thumbnail" src="{{ image_path }}" alt="{{ publication.title }}">
     </div>
     <div class="publication-content">
-      {{ publication.content | remove: "<p>" | remove: "</p>"}}
+      <h2>{{ publication.title }}</h2>
+      <div class="publication-author-wrapper">
+        {% for author in publication.authors %}
+          {% if forloop.last %}
+              {% if author == site.author.name %}
+              <div class="publication-author-main">
+                {{ author }}
+              </div>
+              {% else %}
+              <div class="publication-author">
+                {{ author }}
+              </div>
+              {% endif %}
+            {% else %}
+              {% if author == site.author.name %}
+              <div class="publication-author-main">
+                {{ author | append: ", "}}
+              </div>
+              {% else %}
+              <div class="publication-author">
+                {{ author | append: ", "}}
+              </div>
+              {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="publication-conference">
+        {{ publication.conference }}
+      </div>
+      <div class="publication-abstract">
+        {{ publication.content | remove: "<p>" | remove: "</p>"}}
+      </div>
     </div>
   </div>
   {% endfor %}
