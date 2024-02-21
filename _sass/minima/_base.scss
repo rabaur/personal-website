@@ -10,7 +10,6 @@ p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
-
 }
 
 
@@ -211,6 +210,22 @@ pre {
     padding-left: $spacing-unit;
   }
 }
+
+/**
+ * Inner Wrapper which divides the wrapper into two columns. The width of the
+ * left column is defined by the $inner-content-width-left variable.
+ */
+ .inner-wrapper {
+  display: grid;
+  grid-template-columns: $inner-content-width-left 1fr;
+  grid-gap: $spacing-unit;
+  .inner-left {
+    border: 1px solid red;
+  }
+  .inner-right {
+    border: 1px solid blue;
+  }
+ }
 
 
 
