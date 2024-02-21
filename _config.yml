@@ -73,5 +73,7 @@ minima:
 collections:
   news:
     output: true
+  publications:
+    output: true
 
 

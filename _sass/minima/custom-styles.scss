@@ -1,7 +1,15 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+.news-wrapper {
+}
+
 .news-item {
     border: 1px solid green;
+    margin-bottom: 10px;
+}
+
+.news-item:last-child {
+    margin-bottom: 0;
 }
 
 .news-date {
@@ -14,4 +22,28 @@
 
 .news-content {
     display: inline;
+}
+
+.publications-wrapper {
+    border: 1px solid lime;
+}
+
+.publication-item {
+    display: grid;
+    grid-template-columns: $inner-content-width-left 1fr;
+    grid-template-areas: "publication-thumbnail publication-content";
+    grid-gap: $spacing-unit;
+    margin-bottom: 10px;
+}
+
+.publication-item:last-child {
+    margin-bottom: 0;
+}
+
+.publication-thumbnail-wrapper {
+    grid-area: publication-thumbnail;
+}
+
+.publication-thumbnail {
+    border-radius: 5px;
 }
