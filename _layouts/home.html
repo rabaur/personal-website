@@ -33,14 +33,12 @@ layout: base
       <div class="publication-thumbnail-wrapper-inner">
         {% assign image_path = "./assets/images/publication-thumbnails/placeholder.jpg" %}
         {% assign publication_name = publication.id | remove: "/publications/" %}
-        <p>{{ publication_name }}</p>
         {% assign search_for_path = "./assets/images/publication-thumbnails/" | append: publication_name | remove: ".md" | append: ".jpg" %}
         {% for file in site.static_files %}
           {% if file.path contains search_for_path %}
             {% assign image_path = search_for_path %}
           {% endif %}
         {% endfor %}
-        <p>{{ search_for_path | inspect }}</p>
         <img class="publication-thumbnail" src="{{ search_for_path }}" alt="{{ publication.title }}">
       </div>
     </div>
