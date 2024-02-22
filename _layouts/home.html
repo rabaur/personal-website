@@ -39,6 +39,7 @@ layout: base
             {% assign image_path = search_for_path %}
           {% endif %}
         {% endfor %}
+        <p>{{ search_for_path | inspect }}</p>
         <img class="publication-thumbnail" src="{{ search_for_path }}" alt="{{ publication.title }}">
       </div>
     </div>
