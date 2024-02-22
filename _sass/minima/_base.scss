@@ -217,11 +217,23 @@ pre {
  */
  .inner-wrapper {
   display: grid;
-  grid-template-columns: $inner-content-width-left 1fr;
   grid-gap: $spacing-unit;
+  @media screen and (min-width: $on-large){
+    grid-template-columns: $inner-content-width-left 1fr;
+    grid-template-areas: "inner-left inner-right";
+  }
+
+  @media screen and (max-width: $on-large){
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "inner-right" "inner-left";
+  }
+
   .inner-left {
+    grid-area: inner-left;
   }
   .inner-right {
+    grid-area: inner-right;
   }
  }
 

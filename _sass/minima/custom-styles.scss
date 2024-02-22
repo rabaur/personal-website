@@ -28,10 +28,16 @@
 
 .publication-item {
     display: grid;
-    grid-template-columns: $inner-content-width-left 1fr;
-    grid-template-areas: "publication-thumbnail publication-content";
     grid-gap: $spacing-unit;
     margin-bottom: 30px;
+    @media (min-width: $on-large) {
+        grid-template-columns: $inner-content-width-left 1fr;
+        grid-template-areas: "publication-thumbnail publication-content";
+    }
+    @media (max-width: $on-large) {
+        grid-template-columns: 1fr;
+        grid-template-areas: "publication-thumbnail" "publication-content";
+    }
 }
 
 .publication-item:last-child {
