@@ -31,15 +31,15 @@ layout: base
   <div class="publication-item">
     <div class="publication-thumbnail-wrapper">
       <div class="publication-thumbnail-wrapper-inner">
-        {% assign image_path = "assets/images/publication-thumbnails/placeholder.jpg" %}
-        {% assign search_for_path = "assets/images/publication-thumbnails/" | append: publication.name | remove: ".md" |
+        {% assign image_path = "./assets/images/publication-thumbnails/placeholder.jpg" %}
+        {% assign search_for_path = "./assets/images/publication-thumbnails/" | append: publication.name | remove: ".md" |
         append: ".jpg" %}
         {% for file in site.static_files %}
           {% if file.path contains search_for_path %}
             {% assign image_path = search_for_path %}
           {% endif %}
         {% endfor %}
-        <img class="publication-thumbnail" src="{{ image_path }}" alt="{{ publication.title }}">
+        <img class="publication-thumbnail" src="{{ search_for_path }}" alt="{{ publication.title }}">
       </div>
     </div>
     <div class="publication-content">
