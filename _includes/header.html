@@ -2,7 +2,9 @@
   <div class="wrapper">
     <div class="inner-wrapper">
       <div class="inner-left">
-        <img class="headshot" src="{{ site.author.image }}" alt="{{ site.author.name }}" />
+        <div class="headshot-wrapper">
+          <img class="headshot" src="{{ site.author.image }}" alt="{{ site.author.name }}" />
+        </div>
       </div>
       <div class="inner-right">
         {%- assign default_paths = site.pages | map: "path" -%}

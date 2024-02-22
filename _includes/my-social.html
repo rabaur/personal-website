@@ -1,7 +1,12 @@
 <div class="my-socials">
     {% for entry in site.minima.social_links %}
-    <a {% unless entry.platform == 'rss' %}rel="me" {% endunless %}href="{{ entry.user_url }}" target="_blank" title="{{ entry.title | default: entry.platform }}">
-      <img class="my-social-item" src="{{ '/assets/images/social-icons/' | append: entry.platform | append: '.svg' }}" alt="{{ entry.title | default: entry.platform }}" />
+    <a {% unless entry.platform=='rss' %}rel="me" {% endunless %}href="{{ entry.user_url }}" target="_blank"
+        title="{{ entry.title | default: entry.platform }}">
+        <div class="my-social-item-wrapper">
+            <img class="my-social-item"
+                src="{{ '/assets/images/social-icons/' | append: entry.platform | append: '.svg' }}"
+                alt="{{ entry.title | default: entry.platform }}" />
+        </div>
     </a>
     {% endfor %}
 </div>

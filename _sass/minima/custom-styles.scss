@@ -12,17 +12,19 @@
 
 .news-date {
     display: inline;
-    background-color: rgba(225, 160, 160, 0.2509803922);
     padding: 3px 5px;
     border-radius: 5px;
     margin-right: 5px;
+    box-shadow: inset $box-shadow;
 }
 
 .news-content {
     display: inline;
 }
 
-.publications-wrapper {}
+.publications-wrapper {
+    margin-top: 20px;
+}
 
 .publication-item {
     display: grid;
@@ -38,23 +40,29 @@
 
 .publication-thumbnail-wrapper {
     grid-area: publication-thumbnail;
-    overflow: hidden;
-    border-radius: 10px;
-    position: relative;
 }
 
-.publication-thumbnail-wrapper::after {
+.publication-thumbnail-wrapper-inner {
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.publication-thumbnail-wrapper-inner::after {
     content: '';
     display: block;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
-    box-shadow: inset 0px 0px 20px 0 rgba(0, 0, 0, 0.25);
+    left: 0;
+    box-shadow: inset $box-shadow;
+    border-radius: 10px;
 }
 
-.publication-thumbnail {
-}
+.publication-thumbnail {}
 
 .publication-author {
     display: inline;
@@ -62,7 +70,7 @@
 
 .publication-author-main {
     display: inline;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .publication-conference {
@@ -73,10 +81,18 @@
     display: inline;
 }
 
+.headshot-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin-bottom: 20px;
+}
+
 .headshot {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin: 10px;
 }
 
@@ -95,7 +111,23 @@
     align-items: center;
 }
 
+/* on hover, create a drop shadow around my-social-item-wrapper */
+.my-social-item-wrapper {
+    transition: box-shadow 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 10px 5px 0px;
+}
+
+.my-social-item-wrapper:hover {
+    box-shadow: inset $box-shadow;
+}
+
 .my-social-item {
     height: 20px;
-    margin-right: 20px;
 }
