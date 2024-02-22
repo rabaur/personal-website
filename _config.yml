@@ -21,6 +21,8 @@ theme: minima
 # add a line comment on "theme: minima" above.
 #remote_theme: jekyll/minima
 
+url: www.raphaelbaur.com
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
