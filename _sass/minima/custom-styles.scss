@@ -1,9 +1,11 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
-.news-wrapper {}
+.news-wrapper {
+    font-size: 0.9 * $base-font-size;
+}
 
 .news-item {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .news-item:last-child {
@@ -11,11 +13,15 @@
 }
 
 .news-date {
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 500;
     display: inline;
     padding: 3px 5px;
     border-radius: 5px;
     margin-right: 5px;
-    box-shadow: inset $box-shadow;
+    border: 1px solid $text-color;
+    box-shadow: 0px 1px 0 black;
+    // box-shadow: inset $box-shadow;
 }
 
 .news-content {
@@ -121,21 +127,25 @@
 
 /* on hover, create a drop shadow around my-social-item-wrapper */
 .my-social-item-wrapper {
-    transition: box-shadow 0.3s ease;
-    width: 30px;
-    height: 30px;
+    transition: background-color;
+    border: 1px solid $text-color;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
     border-radius: 5px;
-    margin: 5px 10px 5px 0px;
+    margin: 5px 20px 5px 0px;
+    box-shadow: 0px 2px 0 $text-color;
 }
 
 .my-social-item-wrapper:hover {
-    box-shadow: inset $box-shadow;
+    // Fill with text color on hover
+    background-color: $text-color;
 }
 
 .my-social-item {
     height: 20px;
+    fill: white;
 }
