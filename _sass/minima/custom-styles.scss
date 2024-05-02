@@ -35,6 +35,9 @@
 .publication-item {
     display: grid;
     grid-gap: $spacing-unit;
+    // box-shadow: $box-shadow;
+    // border: 1px solid $text-color;
+    padding: 20px;
     margin-bottom: 30px;
     @media (min-width: $on-large) {
         grid-template-columns: $inner-content-width-left 1fr;
@@ -71,6 +74,7 @@
     top: 0;
     left: 0;
     box-shadow: $box-shadow;
+    // border: 1px solid $text-color;
 }
 
 .publication-thumbnail {}
