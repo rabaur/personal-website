@@ -3,12 +3,9 @@
     <a {% unless entry.platform=='rss' %}rel="me" {% endunless %}href="{{ entry.user_url }}" target="_blank"
         title="{{ entry.title | default: entry.platform }}">
         <div class="my-social-item-wrapper">
-            <div class = "my-social-item">
-                {% include social-icons/{{ entry.platform | append: '.svg' }} %}     
-            </div>       
-            <!-- <img class="my-social-item"
-                src="{{ '/assets/images/social-icons/' | append: entry.platform | append: '.svg' }}"
-                alt="{{ entry.title | default: entry.platform }}" /> -->
+            <div class="my-social-item">
+                {% include social-icons/{{ entry.platform | append: '.svg' }} %}
+            </div>
         </div>
     </a>
     {% endfor %}

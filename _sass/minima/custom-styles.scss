@@ -70,8 +70,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    box-shadow: inset $box-shadow;
-    border-radius: 10px;
+    box-shadow: $box-shadow;
 }
 
 .publication-thumbnail {}
