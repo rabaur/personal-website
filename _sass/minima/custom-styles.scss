@@ -141,11 +141,15 @@
 }
 
 .my-social-item-wrapper:hover {
-    // Fill with text color on hover
+    /* Fill with text color on hover */
     background-color: $text-color;
+    /* Change the fill of the child when hovering the wrapper */
+    .my-social-item {
+        fill: white;  /* Change this to white or any other color */
+    }
 }
 
 .my-social-item {
     height: 20px;
-    fill: white;
+    fill: $text-color; /* Initial color */
 }
