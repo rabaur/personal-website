@@ -27,6 +27,15 @@
         border-radius: 5px;
         border: 1px solid var(--text-color);
         box-shadow: 1px 1px 0 var(--text-color);
+        margin: 4px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
 
         &:hover {
             background-color: var(--text-color);
