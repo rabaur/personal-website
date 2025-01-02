@@ -1,0 +1,39 @@
+<h1>Publications</h1>
+<div>
+    {% assign publications = site.publications %}
+    {% for publication in publications %}
+    <div>
+        <div class="publication-author-container">
+            {% for author in publication.authors %}
+            {% if forloop.last %}
+            {% if author == site.author.name %}
+            <div class="publication-author-main">
+                {{ author }}
+            </div>
+            {% else %}
+            <div class="publication-author">
+                {{ author }}
+            </div>
+            {% endif %}
+            {% else %}
+            {% if author == site.author.name %}
+            <div class="publication-author-main">
+                {{ author | append: ", "}}
+            </div>
+            {% else %}
+            <div class="publication-author">
+                {{ author | append: ", "}}
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        <a href="{{ publication.publish_url }}" class="publication-title">
+            {{ publication.title }}
+        </a>
+        <div class="publication-conference">
+            {{ publication.conference }}
+        </div>
+    </div>
+    {% endfor %}
+</div>

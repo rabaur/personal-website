@@ -1,0 +1,59 @@
+.cv-container {
+
+    // General styles for cv-container
+    font-family: 'Crimson Pro', 'PT Serif', serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: 3rem 2rem;
+    --left-column-width: 15%;
+
+
+    // The <h2> tag acts as a separator within the same section of the CV
+    h2 {
+        font-size: 1.2rem;
+        font-weight: 300;
+        border-bottom: 1px solid #000;
+    }
+
+    .education-item-container {
+        // Scoped styles for the education-item-container
+
+        p {
+            // Additional styles for <p> tags inside education-item-container
+
+        }
+    }
+
+    .publications-container {
+        // Make all leaf divs inline by default
+        div {
+            display: inline;
+        }
+    
+        .publication-author-container {
+            div {
+                display: inline; // Ensure authors are inline
+            }
+        }
+    
+        a {
+            display: inline; // Ensure links are inline
+            text-decoration: none; // Customize link appearance
+        }
+    
+        .publication-conference {
+            display: inline; // Keep conference inline
+        }
+    }
+
+    .teaching-item {
+        display: flex;
+        flex-direction: row;
+        .semester {
+            width: var(--left-column-width);
+            font-style: italic;
+            text-align: right;
+            padding-right: 1rem;
+        }
+    }
+}

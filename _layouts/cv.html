@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+{%- include head.html -%}
+
+<body>
+    <div class="cv-container">
+        <p>Raphaël Baur</p>
+        <p>Doctoral Fellow at the ETH AI Center, ETH Zürich</p>
+        <p>Address</p>
+        <h1>Education</h1>
+        {% assign education_items = site.education_items | sort: "date-start" | reverse %}
+        {% for education_item in education_items %}
+        <div class="education-item-container">
+            <p>{{ education_item.title }}</p>
+            <p>{{ education_item.institution }}, {{ education_item.city }}, {{ education_item.country }}</p>
+            <p>
+                {{ education_item.date-start | date: "%m/%Y" }} - {{ education_item.date-end | date: "%m/%Y" }}
+            </p>
+            <p>
+                {{ education_item.content | remove: "
+            <p>" | remove: "</p>"}}
+            </p>
+        </div>
+        {% endfor %}
+        {% include cv-publications-section.html %}
+        <h1>Professional Experience</h1>
+        {% assign experience_items = site.experience_items | sort: "date-start" | reverse %}
+        {% for experience_item in experience_items %}
+        <div class="education-item-container">
+            <p>{{ experience_item.title }}</p>
+            <p>{{ experience_item.institution }}, {{ experience_item.city }}, {{ experience_item.country }}</p>
+            <p>
+                {{ experience_item.date-start | date: "%m/%Y" }} - {{ experience_item.date-end | date: "%m/%Y" }}
+            </p>
+            <p>
+                {{ experience_item.content }}
+            </p>
+        </div>
+        {% endfor %}
+        {% include cv-teaching-section.html %}
+        <h1>Honors, Awards and Scholarships</h1>
+        <h1>Extra-Curricular Engagements</h1>
+        <h1>Skills</h1>
+        <h1>Languages</h1>
+    </div>
+</body>
+
+</html>

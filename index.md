@@ -7,7 +7,9 @@
 #
 layout: home
 ---
-I am a Master Student in Computer Science, with a major in Machine Intelligence.
-I am currently working as a research assistant at the [IVIA Lab](https://ivia.ethz.ch/), lead by Menna El-Assady, and the [Chair of Cognitive Science](https://cog.ethz.ch/), lead by Christoph Hölscher.
 
-My research focuses on the intersection of **AI**, **architectural design**, and **cognition**. My goal is to design systems that augment human creativity and decision-making in architectural design to shape the built environment of the future.
+I am pursuing a Ph.D. in Computer Science at ETH Zurich, supported by the prestigious [ETH AI Center Doctoral Fellowship](https://ai.ethz.ch/about-us/people/doctoral-students.html). My research is supervised by [Prof. Dr. Mennatallah El-Assady](https://ivia.ch) and [Prof. Dr. Christoph Hölscher](https://cog.ethz.ch/people/christoph-hoelscher.html).
+
+Previously, I completed my Master's degree and Bachelor's degree in Computer Science at ETH Zurich, focusing on **AI** and **architectural design**.
+
+I am interested to use human-AI collaboration to integrate human expertise and creativity into complex design processes, in particular in the field of **hospital designs**.

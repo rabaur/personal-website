@@ -1,0 +1,17 @@
+
+/**
+ * Page content
+ */
+.content-container {
+  width: $content-width;
+  margin: 0 auto;  // Center the contents
+
+  @include media-query($on-palm) {
+    width: 100%;
+    padding: 0 $spacing-unit;
+    box-sizing: border-box;
+  }
+
+  display: flex;
+  flex-direction: column;
+}

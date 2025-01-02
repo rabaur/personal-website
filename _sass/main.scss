@@ -1,8 +1,7 @@
 @charset "utf-8";
 
 // Define defaults for each variable.
-
-$base-font-family: "Inter", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
+$base-font-family: "Geist", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif !default;
 $code-font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
 $base-font-size:   16px !default;
 $base-font-weight: 300 !default;
@@ -10,13 +9,13 @@ $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 $box-shadow:       0px 0px 10px 0 rgba(0, 0, 0, 0.25) !default;
 
-$spacing-unit:     30px !default;
+$spacing-unit:     16px !default;
 
 $table-text-align: left !default;
 
 // Width of the content area
-$content-width:    1000px !default;
-$inner-content-width-left: 30% !default;
+$content-width:    calc(clamp(500px, 50%, 1000px)) !default;
+$inner-content-width-left: 300px !default;
 
 $on-palm:          600px !default;
 $on-laptop:        800px !default;
@@ -31,6 +30,12 @@ $on-large:         $on-laptop !default;
 //     padding-left: $spacing-unit / 2;
 //   }
 // }
+
+// Make the content width 100% on mobile
+@media screen and (max-width: $on-palm) {
+  $content-width: 100%;
+}
+
 // Notice the following mixin uses max-width, in a deprecated, desktop-first
 // approach, whereas media queries used elsewhere now use min-width.
 @mixin media-query($device) {
@@ -45,8 +50,16 @@ $on-large:         $on-laptop !default;
 
 // Import pre-styling-overrides hook and style-partials.
 @import
-  "minima/custom-variables", // Hook to override predefined variables.
-  "minima/base",             // Defines element resets.
-  "minima/layout",           // Defines structure and style based on CSS selectors.
-  "minima/custom-styles"     // Hook to override existing styles.
+  "reset",            // Reset some basic elements
+  "variables",        // Define variables
+  "themes",           // Custom themes.
+  "home",             // Defines homepage-specific styles.
+  "news",             // Defines news-specific styles.
+  "cv",               // Defines CV-specific styles
+  "publications",     // Defines publications-specific styles.
+  "header",           // Defines header-specific styles.
+  "footer",           // Defines footer-specific styles.
+  "layout",           // Defines structure and style based on CSS selectors.
+  "base",             // Defines base-specific styles.
+  "social-items"      // Defines social items-specific styles.
 ;

@@ -1,0 +1,36 @@
+.home-content {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-unit 0;
+
+    > div {
+        padding-bottom: $spacing-unit;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.research-interests {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: calc($spacing-unit / 4);
+
+    .chip {
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+        cursor: pointer;
+        display: inline;
+        font-size: 0.8rem;
+        padding: 3px 5px;
+        border-radius: 5px;
+        border: 1px solid var(--text-color);
+        box-shadow: 1px 1px 0 var(--text-color);
+
+        &:hover {
+            background-color: var(--text-color);
+            color: var(--background-color);
+        }
+    }
+}

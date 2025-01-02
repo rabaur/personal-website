@@ -1,0 +1,25 @@
+// Contains the base styles for the site.
+
+body {
+    background-color: var(--background-color);
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--primary-color-light);
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: var(--primary-color-dark);
+    }
+
+    &:visited {
+        color: var(--primary-color-dark);
+    }
+}

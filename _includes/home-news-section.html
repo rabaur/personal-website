@@ -1,0 +1,14 @@
+<h1>News</h1>
+<div>
+  {% assign all_news = site.news | sort: "date" | reverse %}
+  {% for news in all_news %}
+  <div class="news-item">
+    <div class="news-date">
+      {{ news.date | date: "%-d %B %Y" }}
+    </div>
+    <div class="news-content">
+      {{ news.content | remove: "<p>" | remove: "</p>"}}
+    </div>
+  </div>
+  {% endfor %}
+</div>

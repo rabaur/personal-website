@@ -1,0 +1,14 @@
+<h1>Teaching</h1>
+{% for course in site.course_descriptions %}
+<h2>{{course.title}} - {{ course.nr }} </h2>
+{{ course.content }}
+{% assign sorted_teaching_items = site.teaching_items | where: "course-title", course.title | sort: date | reverse %}
+{% for teaching_item in sorted_teaching_items %}
+<div class="teaching-item">
+    <div class="semester">
+        {{ teaching_item.semester }}
+    </div>
+    {{ teaching_item.role }}
+</div>
+{% endfor %}
+{% endfor %}

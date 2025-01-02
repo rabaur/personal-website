@@ -1,0 +1,25 @@
+
+.news-item {
+    margin-bottom: 16px;
+    width: 100%;
+    background-color: var(--background-color);
+    line-height: 1.5rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.news-date {
+    display: inline;
+    font-size: 0.8rem;
+    padding: 3px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+    border: 1px solid var(--text-color);
+    box-shadow: 1px 1px 0 var(--text-color);
+}
+
+.news-content {
+    display: inline;
+}
