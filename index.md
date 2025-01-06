@@ -8,7 +8,7 @@
 layout: home
 ---
 
-I am pursuing a Ph.D. in Computer Science at ETH Zurich, supported by the prestigious [ETH AI Center Doctoral Fellowship](https://ai.ethz.ch/about-us/people/doctoral-students.html). My research is supervised by [Prof. Dr. Mennatallah El-Assady](https://ivia.ch) and [Prof. Dr. Christoph Hölscher](https://cog.ethz.ch/people/christoph-hoelscher.html).
+I am a Doctoral Fellow at the [ETH AI Center](https://ai.ethz.ch/about-us/people/doctoral-students.html). My research is supervised by [Prof. Dr. Mennatallah El-Assady](https://ivia.ch) and [Prof. Dr. Christoph Hölscher](https://cog.ethz.ch/people/christoph-hoelscher.html).
 
 Previously, I completed my Master's degree and Bachelor's degree in Computer Science at ETH Zurich, focusing on **AI** and **architectural design**.
 
