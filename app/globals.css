@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-accent: #CE5235;
+  --color-accent-light: #ec826a;
+  --color-accent-dark: #9b3923;
+  --font-serif: "Crimson Pro", "PT Serif", Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-geist-sans);
+}
+
+a:not([class]) {
+  color: var(--color-accent);
+  transition: color 0.15s;
+}
+
+a:not([class]):hover {
+  color: var(--color-accent-light);
+}
+
+a:not([class]):visited {
+  color: var(--color-accent-dark);
+}
