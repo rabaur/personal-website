@@ -19,21 +19,19 @@ export default function Home() {
           .
         </p>
         <p className="mt-3">
-          Previously, I completed my Master&apos;s degree and Bachelor&apos;s
-          degree in Computer Science at ETH Zurich, focusing on{" "}
-          <strong>AI</strong> and <strong>architectural design</strong>.
-        </p>
-        <p className="mt-3">
           I am interested to use human-AI collaboration to integrate human
           expertise and creativity into complex design processes, in particular
           in the field of <strong>hospital designs</strong>.
         </p>
+        <p className="mt-3">
+          To achieve this, I am currently focusing on capturing complex human preferences by learning <strong>reward functions</strong> from <strong>heterogenous human feedback</strong>.
+        </p>
       </section>
 
-      <section>
+      {/* <section>
         <h2 className="text-xl font-semibold mb-3">Research Interests</h2>
         <ResearchInterests />
-      </section>
+      </section> */}
 
       <NewsSection />
       <PublicationsSection />

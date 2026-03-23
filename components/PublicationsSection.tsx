@@ -11,7 +11,7 @@ export function PublicationsSection({ variant = "home" }: Props) {
 
   return (
     <section>
-      <h2 className="text-xl font-semibold mb-4">Publications</h2>
+      <h2 className="text-xl font-semibold mb-4">Selected Publications</h2>
       <div className="space-y-4">
         {publications.map((pub) => (
           <div key={pub.title} className="space-y-0.5">

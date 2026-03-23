@@ -3,7 +3,7 @@ export const siteConfig = {
   email: "rabaur@ethz.ch",
   position: "Doctoral Fellow, ETH AI Center",
   institution: "ETH Zürich",
-  image: "/images/raphael-baur.jpg",
+  image: "/images/raphael-baur.png",
   url: "https://www.raphaelbaur.com",
   description: "Personal website of Raphaël Baur. © 2024 Raphaël Baur.",
 

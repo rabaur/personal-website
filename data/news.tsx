@@ -7,6 +7,14 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
+    date: "2026-02-02",
+    content: (
+      <>
+        We just published a preprint on <a href="https://arxiv.org/abs/2602.15206">MAVRL</a>, a novel method for learning reward functions from multiple feedback types with amortized variational inference.
+      </>
+    ),
+  },
+  {
     date: "2024-10-30",
     content: (
       <>
