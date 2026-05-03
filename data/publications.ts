@@ -9,7 +9,7 @@ export const publications: Publication[] = [
   {
     title: "MAVRL: Learning Reward Functions from Multiple Feedback Types with Amortized Variational Inference",
     authors: ["Raphaël Baur", "Yannick Metz", "Maria Gkoulta", "Mennatallah El-Assady", "Giorgia Ramponi", "Thomas Kleine Buening"],
-    conference: "Preprint, 2026",
+    conference: "ICML2026",
     url: "https://arxiv.org/abs/2602.15206",
   },
   {
