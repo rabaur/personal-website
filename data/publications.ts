@@ -23,7 +23,7 @@ export const publications: Publication[] = [
     title:
       "RLHF-Blender: A Configurable Interactive Interface for Learning from Diverse Human Feedback",
     authors: [
-      "Yannik Metz",
+      "Yannick Metz",
       "David Lindner",
       "Raphaël Baur",
       "Daniel Keim",
