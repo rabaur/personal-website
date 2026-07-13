@@ -7,7 +7,7 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
-    date: "2026-05-03",
+    date: "2026-04-29",
     content: (
       <>
         <a href="https://arxiv.org/abs/2602.15206">MAVRL</a> has been accepted to ICML 2026. See you all in Seoul!

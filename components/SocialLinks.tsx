@@ -1,4 +1,4 @@
-import { Mail, Github } from "lucide-react";
+import { Mail, Github, FileText } from "lucide-react";
 import { siteConfig } from "@/data/siteConfig";
 
 function GoogleScholarIcon({ size = 18 }: { size?: number }) {
@@ -19,6 +19,7 @@ const iconMap = {
   mail: Mail,
   github: Github,
   google_scholar: GoogleScholarIcon,
+  cv: FileText,
 } as const;
 
 export function SocialLinks({ className = "" }: { className?: string }) {
@@ -26,14 +27,34 @@ export function SocialLinks({ className = "" }: { className?: string }) {
     <div className={`flex items-center gap-2 ${className}`}>
       {siteConfig.socialLinks.map((link) => {
         const Icon = iconMap[link.platform];
+        const isExternal = link.platform !== "mail";
+        const baseClass =
+          "flex items-center rounded-md border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors";
+
+        if (link.platform === "cv") {
+          return (
+            <a
+              key={link.platform}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={link.label}
+              className={`${baseClass} gap-1.5 px-2 py-1 text-sm`}
+            >
+              <Icon size={16} />
+              <span>{link.label}</span>
+            </a>
+          );
+        }
+
         return (
           <a
             key={link.platform}
             href={link.url}
-            target={link.platform === "mail" ? undefined : "_blank"}
-            rel={link.platform === "mail" ? undefined : "noopener noreferrer"}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
             title={link.label}
-            className="p-1.5 rounded-md border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors"
+            className={`${baseClass} p-1.5`}
           >
             <Icon size={16} />
           </a>

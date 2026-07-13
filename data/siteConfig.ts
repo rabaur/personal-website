@@ -23,6 +23,11 @@ export const siteConfig = {
       url: "https://scholar.google.com/citations?user=xQslnqwAAAAJ&hl=en",
       label: "Google Scholar",
     },
+    {
+      platform: "cv" as const,
+      url: "/raphael-baur-cv.pdf",
+      label: "CV",
+    },
   ],
 
   researchInterests: [
