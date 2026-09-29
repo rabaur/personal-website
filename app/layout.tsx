@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { Crimson_Pro } from "next/font/google";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { Archivo, Barlow_Condensed, Crimson_Pro } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-archivo",
+});
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-barlow-condensed",
+});
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -32,17 +42,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${crimsonPro.variable}`}
-      suppressHydrationWarning
+      className={`${archivo.variable} ${barlowCondensed.variable} ${crimsonPro.variable}`}
     >
-      <body className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased font-[family-name:var(--font-geist-sans)]">
-        <ThemeProvider>
-          <main className="max-w-xl mx-auto px-6 py-16">
-            <Header />
-            {children}
-            <Footer />
-          </main>
-        </ThemeProvider>
+      <body>
+        <main className="board">
+          <Header />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );

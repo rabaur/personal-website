@@ -1,27 +1,370 @@
 @import "tailwindcss";
+@import "./tokens.css";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/*
+  Brutalist · Swiss · Minimal — site rules.
+  Follows style-kit README §1–§7: 2 px ink borders, zero radius, no shadows,
+  Archivo everywhere, uppercase tracked labels, one highlight colour per view.
+  Values come from tokens.css; the web scale is the figure scale × --web-scale.
+*/
 
-@theme {
-  --color-accent: #CE5235;
-  --color-accent-light: #ec826a;
-  --color-accent-dark: #9b3923;
-  --font-serif: "Crimson Pro", "PT Serif", Georgia, serif;
+:root {
+  --web-scale: 0.82;
+  --fs-web-display: calc(var(--fs-display) * var(--web-scale)); /* 36px */
+  --fs-web-title: calc(var(--fs-title) * var(--web-scale));     /* 23px */
+  --fs-web-label: calc(var(--fs-label) * var(--web-scale));     /* 18px */
+  --fs-web-body: 17px;
+  --fs-web-small: 15px;
+  --fs-web-tag: calc(var(--fs-tag) * var(--web-scale));         /* 12px */
+  --fs-web-caption: calc(var(--fs-caption) * var(--web-scale)); /* 11px */
+  --board-max: 760px;
+  --label-col: 150px;
+  /* The single highlight colour for this site (§1.3: one colour, one job). */
+  --acc-highlight: var(--acc-violet);
+}
+
+* {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+html {
+  background: var(--paper-off);
+}
+
+body {
+  font-size: var(--fs-web-body);
+  line-height: 1.45;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-sans);
+  margin: 0;
 }
 
-a:not([class]) {
-  color: var(--color-accent);
-  transition: color 0.15s;
+strong {
+  font-weight: var(--w-strong);
 }
 
-a:not([class]):hover {
-  color: var(--color-accent-light);
+::selection {
+  background: var(--acc-highlight);
+  color: var(--ink);
 }
 
-a:not([class]):visited {
-  color: var(--color-accent-dark);
+:focus-visible {
+  outline: var(--stroke) solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ---- Board: one white rectangle on the desk ---- */
+
+.board {
+  background: var(--paper);
+  max-width: var(--board-max);
+  margin: var(--s-6) auto;
+  padding: var(--pad-board);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-7);
+}
+
+@media (max-width: 640px) {
+  .board {
+    margin: 0;
+    padding: var(--s-5);
+  }
+}
+
+/* ---- Rows: label column + content, shared across the page ---- */
+
+.row {
+  display: grid;
+  grid-template-columns: var(--label-col) minmax(0, 1fr);
+  gap: 0 var(--gap-cell);
+  align-items: start;
+}
+
+.row-label {
+  font-weight: var(--w-label);
+  font-size: var(--fs-web-label);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: var(--track-label);
+  padding-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-2) 0;
+  }
+}
+
+/* ---- Type helpers ---- */
+
+.display {
+  font-weight: var(--w-label);
+  font-size: var(--fs-web-display);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+a.display {
+  text-decoration: none;
+}
+
+a.display:hover {
+  color: var(--acc-link-hover);
+}
+
+.label {
+  font-weight: var(--w-label);
+  font-size: var(--fs-web-label);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: var(--track-label);
+}
+
+.tag {
+  display: inline-block;
+  font-weight: var(--w-label);
+  font-size: var(--fs-web-tag);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: var(--track-tag);
+  padding: var(--s-1) var(--s-2);
+  border: var(--stroke-thin) solid var(--ink);
+  white-space: nowrap;
+}
+
+.prose {
+  font-size: var(--fs-web-body);
+  line-height: 1.45;
+}
+
+.prose p + p,
+.prose p + ul {
+  margin-top: var(--s-3);
+}
+
+.prose ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+}
+
+.prose ul > li {
+  padding-left: var(--s-6);
+  position: relative;
+}
+
+/* Bullet = ink square, drawn not implied. */
+.prose ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 10px;
+  height: 10px;
+  background: var(--ink);
+}
+
+/* ---- Box ---- */
+
+.box {
+  border: var(--stroke) solid var(--ink);
+  background: var(--paper);
+  padding: var(--pad-box);
+}
+
+/* ---- Button (text-only; no icons) ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-weight: var(--w-label);
+  font-size: var(--fs-web-tag);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: var(--track-label);
+  padding: var(--s-2) var(--s-3);
+  border: var(--stroke) solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  transition: none;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn:active {
+  background: var(--acc-highlight);
+  color: var(--ink);
+}
+
+/* ---- Ruled list (table rules: 2 px top/bottom, 1 px hairlines between rows) ---- */
+
+.ruled {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--stroke) solid var(--ink);
+  border-bottom: var(--stroke) solid var(--ink);
+}
+
+.ruled > li {
+  padding: var(--s-3) 0;
+}
+
+.ruled > li + li {
+  border-top: var(--stroke-thin) solid var(--ink);
+}
+
+/* ---- News ---- */
+
+/* The 2 px rules frame the scroll window so the frame stays while rows scroll. */
+.news-scroll {
+  max-height: min(40vh, 20rem);
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  border-top: var(--stroke) solid var(--ink);
+  border-bottom: var(--stroke) solid var(--ink);
+}
+
+.news-scroll > .ruled {
+  border-top: none;
+  border-bottom: none;
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 0 var(--gap-cell);
+  align-items: start;
+}
+
+.news-date {
+  font-weight: var(--w-label);
+  font-size: var(--fs-web-tag);
+  line-height: 1.45;
+  text-transform: uppercase;
+  letter-spacing: var(--track-tag);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.2em;
+  white-space: nowrap;
+}
+
+.news-body {
+  font-size: var(--fs-web-small);
+  line-height: 1.45;
+}
+
+/* ---- Publications ---- */
+
+.pub {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+}
+
+.pub-title {
+  font-weight: var(--w-strong);
+  font-size: var(--fs-web-body);
+  line-height: 1.3;
+}
+
+.pub-authors {
+  font-size: var(--fs-web-small);
+  line-height: 1.45;
+}
+
+.pub-meta {
+  margin-top: var(--s-1);
+}
+
+/* ---- Footnote: bordered square marker + hard-edged callout ---- */
+
+.fn {
+  position: relative;
+  display: inline;
+  margin: 0 1px;
+}
+
+/* Inline (not inline-block) so "word¹" stays one unbreakable unit at line ends. */
+.fn-marker {
+  font-family: var(--font-sans);
+  font-weight: var(--w-label);
+  font-size: 10px;
+  line-height: 1;
+  display: inline;
+  padding: 1px 3px;
+  vertical-align: 0.35em;
+  border: var(--stroke) solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: help;
+  transition: none;
+}
+
+.fn-marker:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Selected = highlight fill: the single accent element on the view. */
+.fn-marker[aria-expanded="true"] {
+  background: var(--acc-highlight);
+  color: var(--ink);
+}
+
+.fn-callout {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 20;
+  display: block;
+  width: max-content;
+  max-width: min(18rem, calc(100vw - 2rem));
+  padding-top: var(--s-1);
+}
+
+.fn-callout-box {
+  display: block;
+  border: var(--stroke) solid var(--ink);
+  background: var(--paper);
+  padding: var(--s-2) var(--s-3);
+  font-weight: var(--w-body);
+  font-size: var(--fs-web-small);
+  line-height: 1.3;
+  text-align: left;
+  color: var(--ink);
+}
+
+/* ---- Footer ---- */
+
+.footer {
+  border-top: var(--stroke) solid var(--ink);
+  padding-top: var(--s-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-cell);
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-weight: var(--w-label);
+  font-size: var(--fs-web-tag);
+  text-transform: uppercase;
+  letter-spacing: var(--track-tag);
 }

@@ -10,25 +10,25 @@ export function PublicationsSection({ variant = "home" }: Props) {
   }
 
   return (
-    <section>
-      <h2 className="text-xl font-semibold mb-4">Selected Publications</h2>
-      <div className="space-y-4">
+    <section className="row">
+      <h2 className="row-label">Selected Publications</h2>
+      <ul className="ruled">
         {publications.map((pub) => (
-          <div key={pub.title} className="space-y-0.5">
+          <li key={pub.title} className="pub">
             <a
               href={pub.url}
-              className="font-semibold leading-snug hover:underline"
+              className="pub-title"
               target="_blank"
               rel="noopener noreferrer"
             >
               {pub.title}
             </a>
-            <div className="text-sm">
+            <div className="pub-authors">
               {pub.authors.map((author, i) => (
                 <span key={author}>
                   <span
                     className={
-                      author === AUTHOR_NAME ? "font-medium" : undefined
+                      author === AUTHOR_NAME ? "font-[var(--w-strong)]" : undefined
                     }
                   >
                     {author}
@@ -37,12 +37,12 @@ export function PublicationsSection({ variant = "home" }: Props) {
                 </span>
               ))}
             </div>
-            <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-              {pub.conference}
+            <div className="pub-meta">
+              <span className="tag">{pub.conference}</span>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

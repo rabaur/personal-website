@@ -2,47 +2,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
 import { SocialLinks } from "./SocialLinks";
-import { ThemeToggle } from "./ThemeToggle";
 
 // Re-enable when the CV page is ready: { href: "/cv", label: "CV" }
 const navLinks: { href: string; label: string }[] = [];
 
 export function Header() {
   return (
-    <header className="flex justify-between items-start pt-6 pb-6 mb-8 border-y border-zinc-700 dark:border-zinc-300">
-      <div className="flex flex-col justify-between gap-3">
-        <div>
-          <Link href="/" className="no-underline hover:no-underline">
-            <h1 className="text-5xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
-              {siteConfig.name}
-            </h1>
-          </Link>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 pt-4">
-            {siteConfig.position}
-          </p>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            {siteConfig.institution}
-          </p>
+    <header className="flex items-start justify-between gap-[var(--gap-cell)]">
+      <div className="flex flex-col gap-[var(--s-4)]">
+        <Link href="/" className="display no-underline">
+          {siteConfig.name}
+        </Link>
+        <div className="flex flex-wrap gap-[var(--s-2)]">
+          <span className="tag">{siteConfig.position}</span>
+          <span className="tag">{siteConfig.institution}</span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-[var(--s-2)]">
           {navLinks.length > 0 ? (
-            <>
-              <nav className="flex gap-3 text-sm">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </nav>
-              <div className="w-px h-4 bg-zinc-200 dark:bg-zinc-700" />
-            </>
+            <nav className="flex gap-[var(--s-2)]">
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="btn">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           ) : null}
           <SocialLinks />
-          <ThemeToggle />
         </div>
       </div>
       <Image
@@ -50,7 +35,7 @@ export function Header() {
         alt={siteConfig.name}
         width={160}
         height={160}
-        className="rounded-full border border-zinc-200 dark:border-zinc-700 hidden sm:block"
+        className="hidden sm:block shrink-0 border-[length:var(--stroke)] border-[color:var(--ink)]"
         priority
       />
     </header>

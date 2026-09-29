@@ -1,0 +1,61 @@
+/* Brutalist / Swiss figure style — tokens. Link this file; do not hard-code values. */
+/* Copied from .claude/skills/style-kit/tokens.css. Fonts are self-hosted via next/font in app/layout.tsx,
+   which sets --font-archivo and --font-barlow-condensed on <html>. */
+
+:root {
+  /* ink & paper */
+  --ink: #111111;
+  --ink-soft: #444444;
+  --ink-muted: #8a8a8a;
+  --paper: #ffffff;
+  --paper-off: #e9e9e9;   /* page/desk background behind white boards */
+  --fill-neutral: #d4d4d4; /* placeholder / "content without meaning" */
+  --fill-neutral-2: #c4c4c4;
+
+  /* categorical accents — flat, saturated, always inside a 2px ink border */
+  --acc-blue: #5aaeff;    /* preferences */
+  --acc-green: #3ddc97;   /* ratings */
+  --acc-red: #ff6b5e;     /* stops / negative */
+  --acc-violet: #c29bff;  /* edits */
+  --acc-yellow: #f5c400;  /* demonstrations / primary highlight */
+  --acc-link-hover: #d8352e;
+
+  /* strokes */
+  --stroke: 2px;          /* every box, axis, marker outline */
+  --stroke-thin: 1px;     /* token pills, hairline dividers, legend swatches */
+  --stroke-grid: 0.8px;   /* dashed chart grid */
+  --dash: 3 4;            /* grid dash pattern (SVG) */
+  --dash-emph: 6 4;       /* reference/target lines */
+  --radius: 0;            /* never rounded */
+  --shadow: none;         /* never */
+
+  /* type */
+  --font-sans: var(--font-archivo), "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-condensed: var(--font-barlow-condensed), "Barlow Condensed", "Archivo Narrow", "Arial Narrow", sans-serif; /* dense token runs, glyph letters */
+  --font-math: "Latin Modern Math", "STIX Two Math", "Cambria Math", serif;         /* prefer MathJax→SVG */
+  --w-body: 500;
+  --w-strong: 600;
+  --w-label: 800;
+  --track-label: 0.04em;  /* uppercase section labels */
+  --track-tag: 0.06em;    /* uppercase small tags / axis titles */
+
+  /* type scale (figure scale; multiply ×0.75 for dense UI) */
+  --fs-display: 44px;
+  --fs-title: 28px;
+  --fs-label: 22px;   /* box headings, row labels (uppercase, 800) */
+  --fs-body: 16px;
+  --fs-tag: 15px;     /* uppercase tags, axis titles */
+  --fs-caption: 13px;
+
+  /* spacing (4-px base, used literally in the figures) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 14px; --s-5: 16px; --s-6: 24px; --s-7: 28px; --s-8: 40px;
+  --gap-cell: 14px;   /* between sibling boxes in a grid */
+  --pad-box: 12px 14px;
+  --pad-board: 28px;  /* white board inset from desk */
+}
+
+/* base resets that belong with the tokens */
+html { background: var(--paper-off); }
+body { margin: 0; color: var(--ink); font-family: var(--font-sans); font-weight: var(--w-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 2px; }
+a:hover { color: var(--acc-link-hover); }
