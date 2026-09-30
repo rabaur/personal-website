@@ -82,6 +82,29 @@ a:hover {
   }
 }
 
+/* ---- Header: text column + headshot of equal height, ruled off below ---- */
+
+.hdr {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--pad-board);
+  border-bottom: var(--stroke) solid var(--ink);
+}
+
+/* Anchored to the text block's height (not in flow, so its size cannot feed
+   back into the row height). Square via aspect-ratio, cropped with cover. */
+.hdr-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: calc(100% - var(--pad-board));
+  width: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: var(--stroke) solid var(--ink);
+}
+
 /* ---- Rows: label column + content, shared across the page ---- */
 
 .row {
