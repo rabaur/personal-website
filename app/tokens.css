@@ -22,7 +22,7 @@
 
   /* strokes */
   --stroke: 2px;          /* every box, axis, marker outline */
-  --stroke-thin: 1px;     /* token pills, hairline dividers, legend swatches */
+  --stroke-thin: 1.5px;     /* token pills, hairline dividers, legend swatches */
   --stroke-grid: 0.8px;   /* dashed chart grid */
   --dash: 3 4;            /* grid dash pattern (SVG) */
   --dash-emph: 6 4;       /* reference/target lines */

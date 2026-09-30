@@ -28,8 +28,9 @@
   box-shadow: var(--shadow);
 }
 
+/* Paper all the way; the board is an unmarked column on the page. */
 html {
-  background: var(--paper-off);
+  background: var(--paper);
 }
 
 body {
@@ -44,6 +45,12 @@ h1, h2, h3, h4, h5, h6 {
 
 strong {
   font-weight: var(--w-strong);
+}
+
+/* Link hover: highlight fill behind ink text (violet text alone fails contrast). */
+a:hover {
+  color: var(--ink);
+  background: var(--acc-highlight);
 }
 
 ::selection {
@@ -61,7 +68,7 @@ strong {
 .board {
   background: var(--paper);
   max-width: var(--board-max);
-  margin: var(--s-6) auto;
+  margin: 0 auto;
   padding: var(--pad-board);
   display: flex;
   flex-direction: column;
@@ -116,7 +123,8 @@ a.display {
 }
 
 a.display:hover {
-  color: var(--acc-link-hover);
+  color: var(--ink);
+  background: var(--acc-highlight);
 }
 
 .label {
@@ -163,15 +171,29 @@ a.display:hover {
   position: relative;
 }
 
-/* Bullet = ink square, drawn not implied. */
+/* Bullet = a full-height colour bar in a 2 px ink border, one accent per item. */
 .prose ul > li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.45em;
-  width: 10px;
-  height: 10px;
-  background: var(--ink);
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 12px;
+  box-sizing: border-box;
+  border: var(--stroke) solid var(--ink);
+  background: var(--fill-neutral);
+}
+
+.prose ul > li:nth-child(3n + 1)::before {
+  background: var(--acc-blue);
+}
+
+.prose ul > li:nth-child(3n + 2)::before {
+  background: var(--acc-red);
+}
+
+.prose ul > li:nth-child(3n + 3)::before {
+  background: var(--acc-yellow);
 }
 
 /* ---- Box ---- */
@@ -309,7 +331,8 @@ a.display:hover {
   display: inline;
   padding: 1px 3px;
   vertical-align: 0.35em;
-  border: var(--stroke) solid var(--ink);
+  /* Hairline: matches the stroke of the 10 px digit inside. */
+  border: var(--stroke-thin) solid var(--ink);
   background: var(--paper);
   color: var(--ink);
   cursor: help;

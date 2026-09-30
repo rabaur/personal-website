@@ -15,7 +15,7 @@ export const experience: ExperienceItem[] = [
     city: "Zurich",
     country: "Switzerland",
     dateStart: "2020-09",
-    dateEnd: "Present",
+    dateEnd: "2025",
     description:
       "Development of the course toolkit to conduct virtual reality (VR) experiments and agent-based simulations in Unity3D (C#) and spatial analysis in Rhino and Grasshopper (Python, C#). Creation of the toolkit tutorials. Holding lectures and office hours.",
   },
