@@ -7,6 +7,15 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
   {
+    date: "2026-10-06",
+    content: (
+      <>
+        I will be presenting <a href="https://arxiv.org/abs/2602.15206">MAVRL</a> at{" "}
+        <a href="https://ewrl-org.github.io/ewrl-2026/index.html">EWRL 2026</a>.
+      </>
+    ),
+  },
+  {
     date: "2026-04-29",
     content: (
       <>
