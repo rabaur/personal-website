@@ -12,8 +12,11 @@ export default function Home() {
         <p>
           Most relevant real-world problems are wicked.
           <Footnote n={1}>
-            The term was coined in Rittel &amp; Webber&apos;s seminal 1973
-            paper and is used frequently in research on the built environment,
+            The term was coined in Rittel &amp; Webber&apos;s{" "}
+            <a href="https://www.sympoetic.net/Managing_Complexity/complexity_files/1973%20Rittel%20and%20Webber%20Wicked%20Problems.pdf">
+              seminal 1973 paper
+            </a>{" "}
+            and is used frequently in research on the built environment,
             where my applied footing lies.
           </Footnote>{" "}
           One consequence is that solutions are &ldquo;good&rdquo; or
@@ -40,7 +43,10 @@ export default function Home() {
           <Footnote n={4}>Usually pairwise preferences (yawn)</Footnote> and
           they produce brittle reward models that do not capture the intended
           behavior, even though they are trained on human data.
-          <Footnote n={5}>For example, sycophancy</Footnote>
+          <Footnote n={5}>
+            For example,{" "}
+            <a href="https://arxiv.org/abs/2310.13548">sycophancy</a>
+          </Footnote>
         </p>
         <p>
           I don&apos;t think that&apos;s sufficient reason to give up on RLHF
