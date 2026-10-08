@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Archivo, Barlow_Condensed, Crimson_Pro } from "next/font/google";
+import { Barlow_Condensed, Crimson_Pro } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
-
-const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-archivo",
-});
 
 const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
@@ -42,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${barlowCondensed.variable} ${crimsonPro.variable}`}
+      className={`${barlowCondensed.variable} ${crimsonPro.variable}`}
     >
       <body>
         <main className="board">

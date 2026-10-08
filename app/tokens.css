@@ -1,6 +1,6 @@
 /* Brutalist / Swiss figure style — tokens. Link this file; do not hard-code values. */
 /* Copied from .claude/skills/style-kit/tokens.css. Fonts are self-hosted via next/font in app/layout.tsx,
-   which sets --font-archivo and --font-barlow-condensed on <html>. */
+   which sets --font-barlow-condensed on <html>. Body font is system Helvetica. */
 
 :root {
   /* ink & paper */
@@ -30,7 +30,7 @@
   --shadow: none;         /* never */
 
   /* type */
-  --font-sans: var(--font-archivo), "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-condensed: var(--font-barlow-condensed), "Barlow Condensed", "Archivo Narrow", "Arial Narrow", sans-serif; /* dense token runs, glyph letters */
   --font-math: "Latin Modern Math", "STIX Two Math", "Cambria Math", serif;         /* prefer MathJax→SVG */
   --w-body: 500;
